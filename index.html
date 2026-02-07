@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi Valentín? 💙</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            /* Degradado azul suave */
+            background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            text-align: center;
+            touch-action: manipulation;
+        }
+        
+        h1 {
+            color: #0d47a1; /* Azul marino */
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            z-index: 10;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+        }
+        
+        button {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        
+        #siBtn {
+            background-color: #2196f3; /* Azul vibrante */
+            color: white;
+            position: relative;
+        }
+
+        #siBtn:hover {
+            background-color: #1976d2;
+            transform: scale(1.05);
+        }
+        
+        #noBtn {
+            background-color: #64b5f6; /* Azul más claro */
+            color: white;
+            position: relative;
+            z-index: 999;
+        }
+        
+        .corazon {
+            position: absolute;
+            color: #1e88e5; /* Azul para los corazones */
+            font-size: 24px;
+            user-select: none;
+            animation: flotar 4s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes flotar {
+            0% {
+                transform: translateY(105vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>¿Quieres ser mi Valentín? 💙</h1>
+
+    <div class="container">
+        <button id="siBtn" onclick="ganaste()">SÍ</button>
+        <button id="noBtn" onmouseover="moverBoton(this)" ontouchstart="moverBoton(this)">NO</button>
+    </div>
+
+    <script>
+        function moverBoton(btn) {
+            if (btn.style.position !== "fixed") {
+                btn.style.position = "fixed";
+            }
+
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const margen = 50;
+
+            const x = Math.random() * (width - btn.offsetWidth - margen);
+            const y = Math.random() * (height - btn.offsetHeight - margen);
+
+            btn.style.left = Math.max(margen, x) + "px";
+            btn.style.top = Math.max(margen, y) + "px";
+        }
+
+        function ganaste() {
+            alert("¡SABÍA QUE DIRÍAS QUE SÍ! 💙");
+
+            const telefono = "524436331605";
+            const mensaje = encodeURIComponent("Acepto la propuesta. 💙");
+
+            window.location.href = `https://wa.me/${telefono}?text=${mensaje}`;
+        }
+
+        function crearCorazones() {
+            const corazon = document.createElement('div');
+            corazon.classList.add('corazon');
+            // Usamos el corazón azul
+            corazon.innerHTML = '💙'; 
+            corazon.style.left = Math.random() * 95 + "vw";
+            corazon.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(corazon);
+            setTimeout(() => {
+                corazon.remove();
+            }, 4000);
+        }
+
+        setInterval(crearCorazones, 400);
+    </script>
+
+</body>
+</html>
