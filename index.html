@@ -23,7 +23,8 @@
         }
         
         h1 {
-            color: #0d47a1; /* Azul marino */
+            color: #0d47a1;
+            /* Azul marino */
             font-size: 2.2rem;
             margin-bottom: 50px;
             z-index: 10;
@@ -52,18 +53,20 @@
         }
         
         #siBtn {
-            background-color: #2196f3; /* Azul vibrante */
+            background-color: #2196f3;
+            /* Azul vibrante */
             color: white;
             position: relative;
         }
-
+        
         #siBtn:hover {
             background-color: #1976d2;
             transform: scale(1.05);
         }
         
         #noBtn {
-            background-color: #64b5f6; /* Azul más claro */
+            background-color: #64b5f6;
+            /* Azul más claro */
             color: white;
             position: relative;
             z-index: 999;
@@ -71,7 +74,8 @@
         
         .corazon {
             position: absolute;
-            color: #1e88e5; /* Azul para los corazones */
+            color: #1e88e5;
+            /* Azul para los corazones */
             font-size: 24px;
             user-select: none;
             animation: flotar 4s linear infinite;
@@ -93,7 +97,7 @@
 
 <body>
 
-    <h1>¿Quieres ser mi Valentín? 💙</h1>
+    <h1>¿Quieres ser mi San Valentin? 💙</h1>
 
     <div class="container">
         <button id="siBtn" onclick="ganaste()">SÍ</button>
@@ -130,7 +134,7 @@
             const corazon = document.createElement('div');
             corazon.classList.add('corazon');
             // Usamos el corazón azul
-            corazon.innerHTML = '💙'; 
+            corazon.innerHTML = '💙';
             corazon.style.left = Math.random() * 95 + "vw";
             corazon.style.animationDuration = Math.random() * 2 + 3 + "s";
             document.body.appendChild(corazon);
@@ -143,4 +147,5 @@
     </script>
 
 </body>
+
 </html>
